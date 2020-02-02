@@ -7,14 +7,14 @@ import { message } from "antd";
 
 const App = () => {
   // tsc comile error: "'Input' refers to a value, but is being used as a type here.ts(2749)"
-  const inputRef = useRef<Input>(null);
+  const inputRef = useRef<any>(null);
 
   useEffect(() => {
     if (!inputRef.current) {
       throw new Error("Missing ref");
     }
     inputRef.current.focus();
-  });
+  }, []);
 
   return (
     <div className="App">
