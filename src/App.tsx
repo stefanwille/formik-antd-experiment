@@ -6,7 +6,6 @@ import "antd/dist/antd.css";
 import { message } from "antd";
 
 const App = () => {
-  // tsc comile error: "'Input' refers to a value, but is being used as a type here.ts(2749)"
   const inputRef = useRef<any>(null);
 
   useEffect(() => {
@@ -20,10 +19,10 @@ const App = () => {
     <div className="App">
       <Formik
         initialValues={{ firstName: "", age: 20, newsletter: false }}
-        onSubmit={async (values, _formikHelpers) => {
+        onSubmit={async values => {
           message.info(JSON.stringify(values, null, 2));
         }}
-        render={formikApi => (
+        render={() => (
           <Form>
             <Input name="firstName" placeholder="First Name" ref={inputRef} />
             <InputNumber name="age" min={0} />
