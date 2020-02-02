@@ -20,8 +20,9 @@ const App = () => {
     <div className="App">
       <Formik
         initialValues={{ firstName: "", age: 20, newsletter: false }}
-        onSubmit={(values, _formikHelpers): any => {
+        onSubmit={(values, _formikHelpers): Promise<any> => {
           message.info(JSON.stringify(values, null, 2));
+          return Promise.resolve();
         }}
         render={formikApi => (
           <Form>
